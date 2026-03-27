@@ -1,3 +1,5 @@
+import { Collapse } from "bootstrap";
+
 // navbar scroll shadow
 const mainNav = document.getElementById("mainNav");
 window.addEventListener(
@@ -36,12 +38,12 @@ updateActiveLink();
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     const collapseEl = document.getElementById("navMenu");
-    const bsInstance = bootstrap.Collapse.getInstance(collapseEl);
+    const bsInstance = Collapse.getOrCreateInstance(collapseEl);
     if (bsInstance) bsInstance.hide();
   });
 });
 
-// scroll-reveal 
+// scroll-reveal
 const revealEls = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver(
   (entries) => {
@@ -61,7 +63,6 @@ const observer = new IntersectionObserver(
 );
 
 revealEls.forEach((el) => observer.observe(el));
-
 
 // contact form submit on progress
 function handleSubmit() {
@@ -92,3 +93,5 @@ function handleSubmit() {
     btn.style.background = "";
   }, 3000);
 }
+
+window.handleSubmit = handleSubmit;
