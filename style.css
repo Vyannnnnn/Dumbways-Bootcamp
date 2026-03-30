@@ -24,6 +24,19 @@ section[id] {
   scroll-margin-top: var(--nav-h);
 }
 
+/* scroll progress bar */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--yellow), var(--red), var(--teal));
+  z-index: 9999;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
 /* navbar */
 .navbar {
   height: var(--nav-h);
@@ -187,6 +200,33 @@ section[id] {
   letter-spacing: -0.04em;
   margin-left: -9px;
 }
+.typed-text {
+  display: inline-block;
+}
+.cursor {
+  display: inline-block;
+  width: 4px;
+  height: 0.85em;
+  background: var(--yellow);
+  border-radius: 2px;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 0.75s step-end infinite;
+}
+.cursor.done {
+  animation: none;
+  opacity: 0;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 .about-label {
   font-size: 0.85rem;
   font-weight: 500;
@@ -382,6 +422,17 @@ footer {
   color: #fff;
   font-size: 0.9rem;
   text-decoration: none;
+  #scrollProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--yellow), var(--red), var(--teal));
+    z-index: 9999;
+    transition: width 0.1s linear;
+    border-radius: 0 2px 2px 0;
+  }
   transition:
     background 0.2s,
     transform 0.2s;
@@ -403,6 +454,42 @@ footer {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--text);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(16px) scale(0.85);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    background 0.2s;
+  pointer-events: none;
+}
+#backToTop.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+#backToTop:hover {
+  background: #333;
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* animations */
@@ -450,5 +537,9 @@ footer {
   }
   #home .d-flex.gap-3 {
     justify-content: center;
+  }
+  #backToTop {
+    bottom: 20px;
+    right: 20px;
   }
 }

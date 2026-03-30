@@ -1,5 +1,14 @@
 import { Collapse } from "bootstrap";
 
+// scroll progress bar
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+  document.getElementById("scrollProgress").style.width = pct + "%";
+}
+window.addEventListener("scroll", updateProgress);
+
 // navbar scroll shadow
 const mainNav = document.getElementById("mainNav");
 window.addEventListener(
@@ -9,6 +18,26 @@ window.addEventListener(
   },
   { passive: true },
 );
+
+// typing effect for "Hello"
+(function () {
+  const text = "Hello";
+  const el = document.getElementById("typedText");
+  const cursor = document.getElementById("cursor");
+  let i = 0;
+  const speed = 110;
+
+  function type() {
+    if (i <= text.length) {
+      el.textContent = text.slice(0, i);
+      i++;
+      setTimeout(type, i === 1 ? 600 : speed); // initial delay
+    } else {
+      cursor.classList.add("done");
+    }
+  }
+  setTimeout(type, 800); // start after hero fade-in begins
+})();
 
 // active nav link highlight on scroll
 const sections = document.querySelectorAll("section[id]");
@@ -63,6 +92,23 @@ const observer = new IntersectionObserver(
 );
 
 revealEls.forEach((el) => observer.observe(el));
+
+// back to top button
+const btt = document.getElementById("backToTop");
+function updateBtt() {
+  btt.classList.toggle("show", window.scrollY > 400);
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    updateProgress();
+    updateActiveLink();
+    updateBtt();
+  },
+  { passive: true },
+);
+updateActiveLink();
 
 // contact form submit on progress
 function handleSubmit() {

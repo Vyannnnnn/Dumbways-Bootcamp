@@ -12,6 +12,9 @@
     />
   </head>
   <body>
+    <!-- Scroll progress bar -->
+    <div id="scrollProgress"></div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md sticky-top" id="mainNav">
       <div class="container">
@@ -73,7 +76,10 @@
 
           <div class="col-md-7">
             <div class="hero-content">
-              <h1 class="hello-title mb-3">Hello</h1>
+              <div class="hello-title mb-3">
+                <span class="typed-text" id="typedText"></span>
+                <span class="cursor" id="cursor"></span>
+              </div>
               <p class="about-label mb-2">A Bit About Me</p>
               <p class="text-muted mb-4 about-text">
                 I’m a Software Engineer passionate about building scalable,
@@ -337,6 +343,15 @@
         </div>
       </div>
     </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="backToTop"
+      aria-label="Back to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
 
     <script type="module" src="./main.js"></script>
   </body>
