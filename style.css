@@ -422,17 +422,6 @@ footer {
   color: #fff;
   font-size: 0.9rem;
   text-decoration: none;
-  #scrollProgress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--yellow), var(--red), var(--teal));
-    z-index: 9999;
-    transition: width 0.1s linear;
-    border-radius: 0 2px 2px 0;
-  }
   transition:
     background 0.2s,
     transform 0.2s;
