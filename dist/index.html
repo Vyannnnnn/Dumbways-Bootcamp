@@ -10,10 +10,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap"
     />
-    <script type="module" crossorigin src="/assets/index-DS6BkLB3.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CdNDMl3_.css">
+    <script type="module" crossorigin src="/assets/main-DxhHFbFj.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-B991uZpR.css">
   </head>
   <body>
+    <!-- Scroll progress bar -->
+    <div id="scrollProgress"></div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md sticky-top" id="mainNav">
       <div class="container">
@@ -67,7 +70,11 @@
             <div class="photo-wrap">
               <div class="photo-ring">
                 <div class="photo-placeholder">
-                  <img src="/assets/foto-fix-BFifvLlo.jpg" alt="my-photo" class="my-photo" />
+                  <img
+                    src="/assets/foto-fix-BFifvLlo.jpg"
+                    alt="my-photo"
+                    class="my-photo"
+                  />
                 </div>
               </div>
             </div>
@@ -75,7 +82,12 @@
 
           <div class="col-md-7">
             <div class="hero-content">
-              <h1 class="hello-title mb-3">Hello</h1>
+              <!-- Hello typing -->
+              <div class="hello-title mb-3">
+                <span class="typed-text" id="typedText"></span>
+                <span class="cursor" id="cursor"></span>
+              </div>
+
               <p class="about-label mb-2">A Bit About Me</p>
               <p class="text-muted mb-4 about-text">
                 I’m a Software Engineer passionate about building scalable,
@@ -103,7 +115,7 @@
           <div class="col-lg-8">
             <div class="reveal">
               <h2 class="section-title mb-3">Resume</h2>
-              <p class="text-muted mb-4">
+              <p class="mb-4">
                 A beginner Software Engineer with 1 year of experience in
                 providing digital solutions to client problems, both students
                 and small and medium businesses.
@@ -179,69 +191,110 @@
           <div class="col-lg-9">
             <div class="reveal">
               <h2 class="section-title mb-3">Projects</h2>
-              <p class="text-muted mb-4">
-                A collection of freelance projects and digital products I've
-                brought to life.
-              </p>
+              <div class="d-flex justify-content-between mb-4">
+                <p>
+                  A collection of freelance projects and digital products I've
+                  brought to life.
+                </p>
+                <a href="addProjects.html" class="add-link text-decoration-none p-0"
+                  ><i class="bi bi-plus-lg me-1 p-0"></i>Add Project</a
+                >
+              </div>
             </div>
 
             <div class="row g-3">
               <div class="col-md-6 reveal">
                 <div class="card project-card h-100 border p-4">
-                  <span class="tag tag-yellow d-inline-block mb-2"
-                    >Project</span
-                  >
-                  <h5>Website Clipper (Python)</h5>
-                  <p class="text-muted mb-0">
-                    Develop a Python-based web clipper to extract, process, and
-                    store structured data from multiple websites. Implement
-                    automation workflows for data collection, handle parsing and
-                    cleaning of content, and optimize performance for scalable
-                    usage.
-                  </p>
+                  <div class="card-thumb">
+                    <img
+                      src="/assets/pr1-CvdIA4hk.jpg"
+                      alt="Website Clipper"
+                      loading="lazy"
+                    />
+                    <div class="card-thumb-overlay"></div>
+                  </div>
+
+                  <div class="card-body-inner">
+                    <span class="tag tag-yellow d-inline-block mb-2"
+                      >Publishing</span
+                    >
+                    <h5>Website Clipper</h5>
+                    <p class="text-muted mb-2">
+                      Develop a Python-based web clipper to extract, process,
+                      and store structured data from multiple websites.
+                    </p>
+                  </div>
                 </div>
               </div>
+
               <div class="col-md-6 reveal">
                 <div class="card project-card h-100 border p-4">
-                  <span class="tag tag-red d-inline-block mb-2">Project</span>
-                  <h5>Solving Coding Problem</h5>
-                  <p class="text-muted mb-0">
-                    Troubleshoot and resolve technical issues on the client's
-                    web-based sales platform for heavy equipment and spare
-                    parts. Identify bugs, fix errors, and optimize system
-                    performance while ensuring website stability, functionality,
-                    and a smooth user experience for transactions.
-                  </p>
+                  <div class="card-thumb">
+                    <img
+                      src="/assets/pr2-vtLIU--Y.jpg"
+                      alt="Solving Coding Problem"
+                      loading="lazy"
+                    />
+                    <div class="card-thumb-overlay"></div>
+                  </div>
+
+                  <div class="card-body-inner">
+                    <span class="tag tag-red d-inline-block mb-2">Project</span>
+                    <h5>Solving Coding Problem</h5>
+                    <p class="text-muted mb-2">
+                      Troubleshoot and resolve technical issues on the client's
+                      web-based sales platform for heavy equipment and spare
+                      parts.
+                    </p>
+                  </div>
                 </div>
               </div>
+
               <div class="col-md-6 reveal">
                 <div class="card project-card h-100 border p-4">
-                  <span class="tag tag-teal d-inline-block mb-2"
-                    >Digital Product</span
-                  >
-                  <h5>Website Templates</h5>
-                  <p class="text-muted mb-0">
-                    Design and develop customizable portfolio website templates
-                    tailored for developers and professionals. Focus on clean
-                    UI/UX, responsive layouts, and reusable components while
-                    optimizing for performance and ease of deployment across
-                    different platforms.
-                  </p>
+                  <div class="card-thumb">
+                    <img
+                      src="/assets/pr3-CygIjxzy.jpg"
+                      alt="Website Templates"
+                      loading="lazy"
+                    />
+                    <div class="card-thumb-overlay"></div>
+                  </div>
+
+                  <div class="card-body-inner">
+                    <span class="tag tag-teal d-inline-block mb-2"
+                      >Digital Product</span
+                    >
+                    <h5>Website Templates</h5>
+                    <p class="text-muted mb-2">
+                      Design and develop customizable portfolio website
+                      templates tailored for developers and professionals.
+                    </p>
+                  </div>
                 </div>
               </div>
+
               <div class="col-md-6 reveal">
                 <div class="card project-card h-100 border p-4">
-                  <span class="tag tag-yellow d-inline-block mb-2"
-                    >Digital Product</span
-                  >
-                  <h5>AI Prompt Templates</h5>
-                  <p class="text-muted mb-0">
-                    Create and sell AI prompt templates designed to generate
-                    short-form video clips from YouTube content. Structure
-                    prompts to optimize output quality, improve consistency, and
-                    streamline content creation workflows for creators and
-                    marketers.
-                  </p>
+                  <div class="card-thumb">
+                    <img
+                      src="/assets/pr4-DXSnOdbW.jpg"
+                      alt="AI Prompt Templates"
+                      loading="lazy"
+                    />
+                    <div class="card-thumb-overlay"></div>
+                  </div>
+
+                  <div class="card-body-inner">
+                    <span class="tag tag-yellow d-inline-block mb-2"
+                      >Digital Product</span
+                    >
+                    <h5>AI Prompt Templates</h5>
+                    <p class="text-muted mb-2">
+                      Create and sell AI prompt templates designed to generate
+                      short-form video clips from YouTube content.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -259,7 +312,7 @@
           <div class="col-lg-7">
             <div class="reveal">
               <h2 class="section-title mb-3">Contact</h2>
-              <p class="text-muted mb-4">
+              <p class="mb-4">
                 I'd love to hear from you. Drop me a message below or reach out
                 directly at
                 <a
@@ -339,6 +392,15 @@
         </div>
       </div>
     </footer>
+
+    <!-- Back to top button -->
+    <button
+      id="backToTop"
+      aria-label="Back to top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
 
   </body>
 </html>
