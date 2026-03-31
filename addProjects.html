@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md sticky-top" id="mainNav">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <div class="brand-dot"></div>
+          <div class="d-flex gap-2 align-items-end">
+            <span class="brand-name">Ahmad Andre</span>
+            <span class="brand-role">Software Engineer</span>
+          </div>
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <section id="addProjects" class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7">
+            <div class="reveal">
+              <h2 class="section-title mb-3">Add New Project</h2>
+              <p class="mb-4">
+                Add new projects to your portfolio by filling out the form
+                below.
+              </p>
+            </div>
+
+            <form class="d-flex flex-column gap-3 reveal" id="projectForm">
+              <input
+                type="text"
+                class="form-control"
+                id="projectCategory"
+                placeholder="Project Category"
+              />
+              <input
+                type="text"
+                class="form-control"
+                id="projectNameInput"
+                placeholder="Project Name"
+              />
+              <textarea
+                class="form-control"
+                id="projectDescription"
+                rows="5"
+                placeholder="Project Description"
+              ></textarea>
+              <div>
+                <button type="submit" class="btn-send" id="sendBtn">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Projects section -->
+    <section id="projects" class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="reveal">
+              <h2 class="section-title mb-3">Projects</h2>
+              <div class="mb-4">
+                <p>
+                  A collection of freelance projects and digital products I've
+                  brought to life.
+                </p>
+              </div>
+            </div>
+
+            <div class="row g-3" id="projectsGrid">
+              <div class="col-md-6 reveal">
+                <div class="card project-card border p-4">
+                  <div class="card-body-inner">
+                    <span
+                      id="category"
+                      class="tag tag-yellow d-inline-block mb-2"
+                      >Publishing</span
+                    >
+                    <h5 id="projectName">Website Clipper</h5>
+                    <p id="description" class="text-muted mb-2">
+                      Develop a Python-based web clipper to extract, process,
+                      and store structured data from multiple websites.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 reveal">
+                <div class="card project-card border p-4">
+                  <div class="card-body-inner">
+                    <span class="tag tag-yellow d-inline-block mb-2"
+                      >Project</span
+                    >
+                    <h5>Solving Coding Problem</h5>
+                    <p class="text-muted mb-2">
+                      Troubleshoot and resolve technical issues on the client's
+                      web-based sales platform for heavy equipment and spare
+                      parts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 reveal">
+                <div class="card project-card h-100 border p-4">
+                  <div class="card-body-inner">
+                    <span class="tag tag-yellow d-inline-block mb-2"
+                      >Digital Product</span
+                    >
+                    <h5>Website Templates</h5>
+                    <p class="text-muted mb-2">
+                      Design and develop customizable portfolio website
+                      templates tailored for developers and professionals.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 reveal">
+                <div class="card project-card h-100 border p-4">
+                  <div class="card-body-inner">
+                    <span class="tag tag-yellow d-inline-block mb-2"
+                      >Digital Product</span
+                    >
+                    <h5>AI Prompt Templates</h5>
+                    <p class="text-muted mb-2">
+                      Create and sell AI prompt templates designed to generate
+                      short-form video clips from YouTube content.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- js scripts -->
+    <script type="module" src="assets/scripts/main.js"></script>
+    <script>
+      (function () {
+        const form = document.getElementById("projectForm");
+        const categoryInput = document.getElementById("projectCategory");
+        const nameInput = document.getElementById("projectNameInput");
+        const descriptionInput = document.getElementById("projectDescription");
+        const projectsGrid = document.getElementById("projectsGrid");
+        const submitButton = document.getElementById("sendBtn");
+
+        if (!form || !projectsGrid) return;
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const fields = [categoryInput, nameInput, descriptionInput];
+          let allValid = true;
+
+          fields.forEach((field) => {
+            if (!field.value.trim()) {
+              field.classList.add("is-invalid");
+              allValid = false;
+            } else {
+              field.classList.remove("is-invalid");
+            }
+          });
+
+          if (!allValid) return;
+
+          const category = categoryInput.value.trim();
+          const projectName = nameInput.value.trim();
+          const description = descriptionInput.value.trim();
+
+          const col = document.createElement("div");
+          col.className = "col-md-6 reveal visible";
+          col.innerHTML = `
+            <div class="card project-card h-100 border p-4">
+              <div class="card-body-inner">
+                <span class="tag tag-yellow d-inline-block mb-2">${category}</span>
+                <h5>${projectName}</h5>
+                <p class="text-muted mb-2">${description}</p>
+              </div>
+            </div>
+          `;
+
+          projectsGrid.prepend(col);
+          form.reset();
+
+          submitButton.textContent = "Added!";
+          submitButton.style.background = "var(--teal)";
+
+          setTimeout(() => {
+            submitButton.textContent = "Submit";
+            submitButton.style.background = "";
+          }, 1500);
+        });
+      })();
+    </script>
+    <!-- js scripts end -->
+  </body>
+</html>
