@@ -372,6 +372,20 @@ section[id] {
   transform: translateY(-6px);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1) !important;
 }
+.project-card .card-arrow {
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition:
+    transform 0.2s,
+    color 0.2s;
+  display: block;
+  text-align: right;
+}
+.project-card:hover .card-arrow {
+  transform: translate(3px, -3px);
+  color: var(--text);
+}
+
 .card-thumb {
   width: 100%;
   height: 170px;
@@ -418,16 +432,15 @@ section[id] {
   align-self: center;
   font-size: 0.88rem !important;
   color: var(--muted) !important;
-   padding: 4px 12px !important;
-  
-   border-radius: 20px;
+  padding: 4px 12px !important;
+
+  border-radius: 20px;
   transition:
     color 0.2s,
     background 0.2s;
   position: relative;
-
 }
-.add-link:hover{
+.add-link:hover {
   color: var(--text) !important;
   background: rgba(0, 0, 0, 0.06);
 }

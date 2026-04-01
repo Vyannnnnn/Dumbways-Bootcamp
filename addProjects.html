@@ -113,6 +113,11 @@
                       Develop a Python-based web clipper to extract, process,
                       and store structured data from multiple websites.
                     </p>
+                    <a href="detailProject.html" class="text-decoration-none">
+                      <span class="card-arrow"
+                        ><i class="bi bi-arrow-up-right"></i> View details</span
+                      ></a
+                    >
                   </div>
                 </div>
               </div>
@@ -129,6 +134,11 @@
                       web-based sales platform for heavy equipment and spare
                       parts.
                     </p>
+                    <a href="detailProject.html" class="text-decoration-none">
+                      <span class="card-arrow"
+                        ><i class="bi bi-arrow-up-right"></i> View details</span
+                      ></a
+                    >
                   </div>
                 </div>
               </div>
@@ -144,6 +154,11 @@
                       Design and develop customizable portfolio website
                       templates tailored for developers and professionals.
                     </p>
+                    <a href="detailProject.html" class="text-decoration-none">
+                      <span class="card-arrow"
+                        ><i class="bi bi-arrow-up-right"></i> View details</span
+                      ></a
+                    >
                   </div>
                 </div>
               </div>
@@ -159,6 +174,11 @@
                       Create and sell AI prompt templates designed to generate
                       short-form video clips from YouTube content.
                     </p>
+                    <a href="detailProject.html" class="text-decoration-none">
+                      <span class="card-arrow"
+                        ><i class="bi bi-arrow-up-right"></i> View details</span
+                      ></a
+                    >
                   </div>
                 </div>
               </div>
@@ -170,63 +190,5 @@
 
     <!-- js scripts -->
     <script type="module" src="assets/scripts/main.js"></script>
-    <script>
-      (function () {
-        const form = document.getElementById("projectForm");
-        const categoryInput = document.getElementById("projectCategory");
-        const nameInput = document.getElementById("projectNameInput");
-        const descriptionInput = document.getElementById("projectDescription");
-        const projectsGrid = document.getElementById("projectsGrid");
-        const submitButton = document.getElementById("sendBtn");
-
-        if (!form || !projectsGrid) return;
-
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          const fields = [categoryInput, nameInput, descriptionInput];
-          let allValid = true;
-
-          fields.forEach((field) => {
-            if (!field.value.trim()) {
-              field.classList.add("is-invalid");
-              allValid = false;
-            } else {
-              field.classList.remove("is-invalid");
-            }
-          });
-
-          if (!allValid) return;
-
-          const category = categoryInput.value.trim();
-          const projectName = nameInput.value.trim();
-          const description = descriptionInput.value.trim();
-
-          const col = document.createElement("div");
-          col.className = "col-md-6 reveal visible";
-          col.innerHTML = `
-            <div class="card project-card h-100 border p-4">
-              <div class="card-body-inner">
-                <span class="tag tag-yellow d-inline-block mb-2">${category}</span>
-                <h5>${projectName}</h5>
-                <p class="text-muted mb-2">${description}</p>
-              </div>
-            </div>
-          `;
-
-          projectsGrid.prepend(col);
-          form.reset();
-
-          submitButton.textContent = "Added!";
-          submitButton.style.background = "var(--teal)";
-
-          setTimeout(() => {
-            submitButton.textContent = "Submit";
-            submitButton.style.background = "";
-          }, 1500);
-        });
-      })();
-    </script>
-    <!-- js scripts end -->
   </body>
 </html>
