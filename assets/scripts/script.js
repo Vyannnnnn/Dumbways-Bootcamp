@@ -227,12 +227,30 @@ updateBtn();
 
   function renderStoredProjects() {
     const storedProjects = getStoredProjects();
+    // filter 
+    const validProjects = storedProjects.filter((project) => {
+      return (
+        typeof project?.category === "string" &&
+        typeof project?.projectName === "string" &&
+        typeof project?.description === "string" &&
+        project.category.trim() &&
+        project.projectName.trim() &&
+        project.description.trim()
+      );
+    });
 
     projectsGrid
       .querySelectorAll('[data-source="local-storage"]')
       .forEach((item) => item.remove());
 
-    storedProjects.forEach((project) => {
+    // storedProjects.forEach((project) => {
+    //   const cardEl = createProjectCard(project);
+    //   cardEl.dataset.source = "local-storage";
+    //   projectsGrid.prepend(cardEl);
+    // });
+
+    // use a map method
+    validProjects.map((project) => {
       const cardEl = createProjectCard(project);
       cardEl.dataset.source = "local-storage";
       projectsGrid.prepend(cardEl);
@@ -275,6 +293,7 @@ updateBtn();
     submitButton.textContent = "Added!";
     submitButton.style.background = "var(--teal)";
 
+    // 1 of more fallbacks functions
     setTimeout(() => {
       submitButton.textContent = "Submit";
       submitButton.style.background = "";
